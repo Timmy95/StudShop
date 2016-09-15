@@ -1,0 +1,27 @@
+    body {
+            font-family: 'Roboto';
+    }
+    .form-wrapper {
+    padding: 0 25px;
+    }
+    .inside-box {
+    	padding: 0 15px 30px 15px;
+    }
+    .prod-title {
+    	font-size: 30px;
+    }
+    .price {
+    	color: #f8bc07;
+    	font-size: 20px;
+    }
+    .timestamp {
+    	color: grey;
+    	font-style: italic;
+    }
+    .prod-img {
+    	width: 200px;
+    	max-height: 300px;
+    }
+    .btn-my {
+    	width: 115px;
+    }
