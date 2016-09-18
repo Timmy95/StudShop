@@ -16,7 +16,7 @@ class Department extends Model
 	];
 	
 	/**
-	 * Устанавливаем взаимоотношение между Auction и epartment типа Many-to-many
+	 * Устанавливаем взаимоотношение между Auction и Department типа Many-to-many
 	 * 
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
 	 */
