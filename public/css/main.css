@@ -1,8 +1,118 @@
     body {
-            font-family: 'Roboto';
+		font-family: 'Roboto';
     }
+    a {
+    	color: #f4645f;
+    	text-decoration: none;
+    }
+    a:hover {
+    	color: #333;
+    	text-decoration: none;
+		-webkit-transition: color 0.3s ease-out;
+		-moz-transition: color 0.3s ease-out;
+		-o-transition: color 0.3s ease-out;
+		transition: color 0.3s ease-out;
+    }
+    
+    /*==========================================================
+    Стили для навигационной панели
+    ==========================================================*/
+    
+    #sell-button {
+    	color: #f7a310 !important;
+    }
+    #buy-button {
+    	color: #29C400 !important;
+    }
+    #sell-button:hover {
+    	color: #F5F7FA !important;
+		-webkit-transition: color 0.3s ease-out;
+		-moz-transition: color 0.3s ease-out;
+		-o-transition: color 0.3s ease-out;
+		transition: color 0.3s ease-out;
+    }
+    #buy-button:hover {
+    	color: #F5F7FA !important;
+		-webkit-transition: color 0.3s ease-out;
+		-moz-transition: color 0.3s ease-out;
+		-o-transition: color 0.3s ease-out;
+		transition: color 0.3s ease-out;
+    }
+    #custom-sign-out {
+    	color: #333;
+    }
+    .navbar-custom-top {
+    	background-color: #333;
+    	margin-bottom: 0px;
+    	border-color: #333;
+    }
+    .navbar-custom-buttons {
+    	color: #F5F7FA !important;
+    	background-color: #333 !important;
+    }
+    
+    /*==========================================================
+    Стили для главной страницы
+    ==========================================================*/
+    
+    .landing-container {
+    	background-color: white;
+    	padding: 0 10% 0 10%;
+    	margin-bottom: 50px;
+    }
+    #landing-cta {
+    	color: #f4645f;
+    	padding: 40px 0;
+    	margin: auto;
+    	font-size: 20px;
+    	width: 75%;
+    }
+    #landing-cta div {
+    	display: inline;
+    }
+    #landing-cta span {
+    	display: inline-block;
+    	padding-top: 10px;
+    }
+    #landing-btn {
+    	float: right;
+    	color: #f4645f;
+		padding: 15px 30px;
+		font-size: 18px;
+		line-height: 1.3333333;
+		border-radius: 6px;
+		display: inline-block;
+		font-weight: 400;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		border: 1px solid #f4645f;
+		text-decoration: none;
+		background-color: white;
+    }
+    #landing-btn:hover {
+    	color: white;
+    	background-color: #f4645f;
+    	-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+    }
+    #landing-img {
+    	width: 100%;
+    }
+    
+    
+    
+    /*==========================================================
+    Другие стили
+    ==========================================================*/
+    
+    
     .form-wrapper {
-    padding: 0 25px;
+    	padding: 0 25px;
     }
     .inside-box {
     	padding: 0 15px 30px 15px;
@@ -12,7 +122,7 @@
     }
     .price {
     	color: #f8bc07;
-    	font-size: 20px;
+    	font-size: 25px;
     }
     .timestamp {
     	color: grey;
@@ -25,3 +135,7 @@
     .btn-my {
     	width: 115px;
     }
+    .custom-top-margin {
+    	margin-top: 40px;
+    }
+

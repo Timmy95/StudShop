@@ -1,4 +1,4 @@
-	<nav class="navbar navbar-default navbar-static-top">
+	<nav class="navbar navbar-default navbar-static-top navbar-custom-top">
 	    <div class="container">
             <div class="navbar-header">
 
@@ -12,19 +12,19 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img alt="KKP" src="{{ URL::asset('img/logo1.png') }}" height="150%">
+                    <img alt="KKP" src="{{ URL::asset('img/logo_new.png') }}" height="100%">
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/news') }}"><button type="button" class="btn btn-default btn-my">Новости</button></a></li>
-                    <li><a href="{{ url('/auctions') }}"><button type="button" class="btn btn-success btn-my">Купить</button></a></li>
+                    <li><a href="{{ url('/news') }}" class="navbar-custom-buttons">Новости</a></li>
+                    <li><a href="{{ url('/auctions') }}" class="navbar-custom-buttons" id="buy-button">$ Купить</a></li>
                 </ul>
                 @if (!Auth::guest())
 	                <ul class="nav navbar-nav">
-	                    <li><a href="{{ url('/auctions/create') }}"><button type="button" class="btn btn-warning btn-my">Продать</button></a></li>
+	                    <li><a href="{{ url('/auctions/create') }}" id="sell-button">$ Продать</a></li>
 	                </ul>
                 @endif
 
@@ -32,18 +32,16 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}"><button type="button" class="btn btn-default btn-my">Логин</button></a></li>
-                        <li><a href="{{ url('/register') }}"><button type="button" class="btn btn-default btn-my">Регистрация</button></a></li>
+                        <li><a href="{{ url('/login') }}" class="navbar-custom-buttons">Логин</a></li>
+                        <li><a href="{{ url('/register') }}" class="navbar-custom-buttons">Регистрация</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            	<button type="button" class="btn btn-default btn-my">
+                            <a href="#" class="dropdown-toggle navbar-custom-buttons" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
-                                </button>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out" id="custom-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
                     @endif

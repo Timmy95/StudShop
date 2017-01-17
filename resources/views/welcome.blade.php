@@ -1,18 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="landing-container">
+    <img alt="" src="{{ URL::asset('img/landing.png') }}" id="landing-img">
+    <div id="landing-cta">
+    <div><span>Посмотри последние предложения от нашего магазина!</span></div>
+    <div>
+    <a href="{{ url('/auctions') }}">
+    	<input type="button" value="Купить" id="landing-btn">
+    </a>
+    </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        
             <div class="panel panel-default">
-                <div class="panel-heading">Добро пожаловать!</div>
+                <div class="panel-heading"><h3>Последние товары:</h3></div>
 
                 <div class="panel-body">
-                    <p>Это торговая платформа, созданная специально для студентов Харькова.</p>
-                    <p>Здесь вы можете покупать и продавать вещи другим студентам, а так же просматривать 
-                    последние новости нашего студ. городка.</p>
-                    <img alt="" src="{{ URL::asset('img/welcome.jpg') }}" width="100%">
-                    <h3>Последние товары:</h3>
+                    
+                    
                     <div class="container">
                     	<div class="row">
 	                    @foreach($auctions as $auction)

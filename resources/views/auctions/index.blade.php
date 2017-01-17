@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container custom-top-margin">
 @foreach($auctions as $auction)
 
 		<div class="row">
