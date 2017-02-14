@@ -2,101 +2,104 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use DB;
 use App\Auction;
-use App\Http\Requests\AuctionRequest;
 use App\Department;
-
+use Illuminate\Http\Request;
+use App\Http\Requests\AuctionRequest;
 
 
 class AuctionsController extends Controller
 {
-	
-	/**
-	 * Middleware служит для ограничения доступа к определенным страницам
-	 * для определенных групп пользователей. В данном примере ограничиваем
-	 * доступ к форме создания товара для неавторизированных пользователей.
-	 */
+
 	public function __construct() {
 		$this->middleware('auth', ['only' => 'create']);
 		$this->middleware('seller', ['only' => 'edit']);
 	}
 	
 	/**
-	 * Берем все товары из БД, сортируем по дате создания и разбиваем по 4
-	 * штуки на страницу. И передаем информацию на представление.
+	 * Список всех товаров, разбитый по 5 товара на страницу
 	 * 
 	 * @return \Illuminate\View\View
 	 */
     public function index() {
-    	$auctions = DB::table('auctions')->latest('created_at')->simplePaginate(4);
+        $auctions = Auction::latest('created_at')->paginate(5);
+
 		return view('auctions.index')->with('auctions', $auctions);
     }
-    
+
+    /**
+     * Начальная страница
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function welcome() {
-    	$auctions = DB::table('auctions')->latest('created_at')->simplePaginate(3);
+        $auctions = Auction::latest('created_at')->simplePaginate(3);
+
     	return view('welcome')->with('auctions', $auctions);
     }
-    
+
     /**
      * Получаем доступ к конкретному посту
-     * 
-     * @param integer $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id) {
-    	$auction = Auction::findOrFail($id);
+    public function show(Auction $auction) {
     	return view('auctions.show')->with('auction', $auction);
     }
-    
-	public function create() {
+
+
+    /**
+     * Возвращаем страницу с формой создания товара
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create() {
 		$departments = Department::lists('name', 'id');
+
     	return view('auctions.create', compact('departments'));
     }
     
     /**
-     * Получаем тело запроса, перемещаем картинку на сервер
-     * и заносим в бд всю информацию, включая путь к файлу картинки.
+     * Сохраняем товар на сервер
      * 
      * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
      */
     public function store(AuctionRequest $request) {
-    	//$request->input('departments');
-    	
-    	$auction = $request->all();
-    	$auction['image'] = $this->saveAuctionImage($request, $auction);
-    	$auction = new Auction($auction);
-    	
-    	\Auth::user()->auctions()->save($auction);
-    	
-    	$auction->departments()->attach($request->input('departmentList'));
-    	
-    	return redirect('auctions');
+            $auction = $request->all();
+            $auction['image'] = $this->saveAuctionImage($request, $auction);
+            $auction = new Auction($auction);
+
+            \Auth::user()->auctions()->save($auction);
+
+            $auction->departments()->attach($request->input('departmentList'));
+
+            return redirect('auctions');
     }
-    
-    public function edit($id) {
-    	$auction = Auction::findOrFail($id);
+
+    /**
+     * Возвращаем страницу с формой редактирования товара
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Auction $auction) {
     	$departments = Department::lists('name', 'id');
-    	//dd($departments);
+
     	return view('auctions.edit', compact('auction', 'departments'));
     }
-    
+
     /**
-     * 
-     * @param unknown $id
+     *
+     * @param Auction $auction
      * @param AuctionRequest $request
-     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id, AuctionRequest $request) {
-    	$auction = Auction::findOrFail($id);
-    	$auction->title = $request->title;
-    	$auction->body = $request->body;
-    	$auction->price = $request->price;
-    	$auction->image = $this->saveAuctionImage($request, $auction);
-    	
-    	$auction->update();
-    	
-    	//DB::delete('delete from auction_department where auction_id = ?', array($auction->id));
+    public function update(Auction $auction, AuctionRequest $request) {
+        $requestData = $request->all();
+        $requestData['image'] = $this->saveAuctionImage($request, $auction);
+
+    	$auction->update($requestData);
+
     	$auction->departments()->sync($request->input('departmentList'));
     	
     	return redirect('auctions');
@@ -116,6 +119,7 @@ class AuctionsController extends Controller
     		$file = $request->file('image');
     		$name = 'uploads/' . time() . '-' . $file->getClientOriginalName();
     		$file->move(public_path() . '/uploads/', $name);
+
     		return $name;
     	} else {
     		return 0;

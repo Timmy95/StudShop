@@ -29,7 +29,7 @@
 						<h4>Категории:</h4>
 						<ul>
 						@foreach($auction->departments as $department)
-							<li>{{ $department->name }}</li>
+							<li><a href="{{ action('DepartmentsController@show', [$department->name]) }}">{{ $department->name }}</a></li>
 						@endforeach
 						</ul>
 						@endunless

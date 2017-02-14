@@ -21,6 +21,7 @@
 						<p class="timestamp">{{ $blog->created_at->diffForHumans() }}</p>
 						<hr>
                     @endforeach
+                    {{ $blogs->render() }}
                 </div>
             </div>
         </div>

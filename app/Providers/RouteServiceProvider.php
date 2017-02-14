@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot($router);
         
-        //$router->model('auctions', 'App\Auction');
+        $router->model('auctions', 'App\Auction');
         
         $router->bind('departments', function($name)
         {

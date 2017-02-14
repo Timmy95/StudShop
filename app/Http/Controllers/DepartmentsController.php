@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Auction;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,9 +12,7 @@ use App\Department;
 class DepartmentsController extends Controller
 {
     public function show(Department $department) {
-    	$auction = $department->auctions;
-    	
-    	return view('auctions.index')->with('auctions', $auction);
+    	return view('auctions.index')->with('auctions', $department->auctions);
     }
     
 }

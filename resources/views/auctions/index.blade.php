@@ -28,7 +28,8 @@
 		</div>
 		<hr>
 @endforeach
+@if($auctions instanceof Illuminate\Pagination\LengthAwarePaginator)
+	{{ $auctions->render() }}
+@endif
 </div>
-{!! $auctions->render() !!}
-
 @endsection
