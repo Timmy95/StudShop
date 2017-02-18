@@ -2,7 +2,7 @@
 		font-family: 'Roboto';
     }
     a {
-    	color: #f4645f;
+    	color: #f4403b;
     	text-decoration: none;
     }
     a:hover {
@@ -54,14 +54,36 @@
     /*==========================================================
     Стили для главной страницы
     ==========================================================*/
-    
+
+	.landing .row {
+		padding: 45px 0;
+	}
+
+	.landing p {
+		font-size: 21px;
+		padding-top: 10px;
+		color: #f4403b;
+	}
+
+	@media(max-width: 990px) {
+		.landing p {
+			padding-top: 0;
+		}
+	}
+
+	@media(max-width: 768px) {
+		.landing p {
+			text-align: center;
+		}
+	}
+
     .landing-container {
     	background-color: white;
-    	padding: 0 10% 0 10%;
+    	padding: 0 10% 15px 10%;
     	margin-bottom: 50px;
     }
     #landing-cta {
-    	color: #f4645f;
+    	color: #f4403b;
     	padding: 40px 0;
     	margin: auto;
     	font-size: 20px;
@@ -76,7 +98,7 @@
     }
     #landing-btn {
     	float: right;
-    	color: #f4645f;
+    	color: #f4403b;
 		padding: 15px 30px;
 		font-size: 18px;
 		line-height: 1.3333333;
@@ -88,13 +110,13 @@
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		border: 1px solid #f4645f;
+		border: 1px solid #f4403b;
 		text-decoration: none;
 		background-color: white;
     }
     #landing-btn:hover {
     	color: white;
-    	background-color: #f4645f;
+    	background-color: #f4403b;
     	-webkit-transition: all 0.3s ease-out;
 		-moz-transition: all 0.3s ease-out;
 		-o-transition: all 0.3s ease-out;
@@ -103,6 +125,61 @@
     #landing-img {
     	width: 100%;
     }
+
+	/*==========================================================
+    Latest Auctions
+    ==========================================================*/
+
+	.latest-auctions {
+		width: 100%;
+		padding: 0 30px 40px 30px;
+	}
+
+	.latest-auctions h2 {
+		color: #f4403b;
+		padding: 30px 20px;
+	}
+
+	.latest-auctions a {
+		color: #333;
+	}
+
+	.latest-auctions .box-auction {
+		background-color: white;
+		height: 470px;
+		padding: 15px 30px;
+		border: 1px white solid;
+	}
+
+	.latest-auctions .box-auction:hover {
+		border: 5px solid #f4403b;
+		padding: 5px 20px;
+		-webkit-transition: all 0.1s ease-out;
+		-moz-transition: all 0.1s ease-out;
+		-o-transition: all 0.1s ease-out;
+		transition: all 0.1s ease-out;
+	}
+
+	.latest-auctions .box-auction:hover h3 {
+		color: #f4403b;
+	}
+
+	.latest-auctions img{
+		width: 100%;
+		max-height: 330px;
+	}
+
+	@media(max-width: 768px) {
+		.latest-auctions .box-auction {
+			padding: 15px;
+			margin: 15px 0;
+			height: 100%;
+		}
+
+		.latest-auctions .box-auction:hover {
+			padding: 10px;
+		}
+	}
     
     
     
@@ -138,4 +215,9 @@
     .custom-top-margin {
     	margin-top: 40px;
     }
+
+	.render-nav {
+		text-align: center;
+		margin: 0 auto;
+	}
 

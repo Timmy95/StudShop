@@ -7,10 +7,10 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                <p class="prod-title">Последние новости студгородка</p>
-                @if(!Auth::guest() && Auth::user()->moderator)
-                &nbsp<a href="{{ url('/news/create') }}"><button type="button" class="btn btn-info">Написать новость</button></a>
-                @endif
+                    <p class="prod-title">Последние новости студгородка</p>
+                    @if(!Auth::guest() && Auth::user()->moderator)
+                    &nbsp<a href="{{ url('/news/create') }}"><button type="button" class="btn btn-info">Написать новость</button></a>
+                    @endif
                 </div>
 
                 <div class="panel-body">
@@ -21,7 +21,9 @@
 						<p class="timestamp">{{ $blog->created_at->diffForHumans() }}</p>
 						<hr>
                     @endforeach
-                    {{ $blogs->render() }}
+                    <div class="render-nav">
+                        {{ $blogs->render() }}
+                    </div>
                 </div>
             </div>
         </div>
