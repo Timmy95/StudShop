@@ -34,7 +34,7 @@ class AuctionsController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function welcome() {
-        $auctions = Auction::latest('created_at')->simplePaginate(3);
+        $auctions = Auction::latest('created_at')->simplePaginate(6);
 
     	return view('welcome')->with('auctions', $auctions);
     }

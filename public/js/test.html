@@ -1,0 +1,16 @@
+<script src="http://code.jquery.com/jquery.js"></script>
+<input type="text" name="from" id="fromInput"><a href="#" id="swapButton"><=></a><input type="text" name="to" id="toInput">
+
+<script>
+
+$('#swapButton').on('click', function() {
+	var fromInput = $('#fromInput').val();
+	var toInput = $('#toInput').val();
+	
+	$('#toInput').val(fromInput);
+	$('#fromInput').val(toInput);
+	
+	return false;
+});
+
+</script>

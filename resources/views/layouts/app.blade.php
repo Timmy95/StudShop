@@ -23,6 +23,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	{!! Html::style('css/main.css') !!}
+    {!! Html::style('css/animate.css') !!}
+    {!! Html::style('css/slick.css') !!}
+    {!! Html::style('css/slick-theme.css') !!}
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body id="app-layout">

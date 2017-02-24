@@ -133,6 +133,7 @@
 	.latest-auctions {
 		width: 100%;
 		padding: 0 30px 40px 30px;
+		background: url("../img/Sports.png");
 	}
 
 	.latest-auctions h2 {
@@ -153,11 +154,11 @@
 
 	.latest-auctions .box-auction:hover {
 		border: 5px solid #f4403b;
-		padding: 5px 20px;
-		-webkit-transition: all 0.1s ease-out;
-		-moz-transition: all 0.1s ease-out;
-		-o-transition: all 0.1s ease-out;
-		transition: all 0.1s ease-out;
+		padding: 10px 25px;
+		-webkit-transition: all 0s ease-out;
+		-moz-transition: all 0s ease-out;
+		-o-transition: all 0s ease-out;
+		transition: all 0s ease-out;
 	}
 
 	.latest-auctions .box-auction:hover h3 {
@@ -167,6 +168,28 @@
 	.latest-auctions img{
 		width: 100%;
 		max-height: 330px;
+	}
+    
+    .slick-arrow {
+		width: 30px !important;
+		height: 100% !important;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		background: #f4403b !important;
+	}
+
+	.slick-prev {
+		left: -35px !important;
+		border-radius: 15px 0 0 15px;
+	}
+
+	.slick-next {
+		right: -35px !important;
+		border-radius: 0 15px 15px 0;
+	}
+
+	.slide-title {
+		height: 50px;
 	}
 
 	@media(max-width: 768px) {
@@ -179,9 +202,11 @@
 		.latest-auctions .box-auction:hover {
 			padding: 10px;
 		}
+
+		.slide-title {
+			height: auto;
+		}
 	}
-    
-    
     
     /*==========================================================
     Другие стили
